@@ -1,1 +1,52 @@
-<p>phone-detail works!</p>
+<div class="container">
+    <div class="back-link">
+      <a [routerLink]="['/phones']">&larr; Back to Phones</a>
+    </div>
+    
+    <div *ngIf="loading" class="loading">
+      Loading phone details...
+    </div>
+    
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+    
+    <div *ngIf="phone && !loading" class="phone-detail">
+      <div class="phone-header">
+        <h2>{{ phone.name }}</h2>
+        <div class="phone-actions">
+          <a [routerLink]="['/phones', phone.id, 'edit']" class="btn-edit">Edit</a>
+          <button (click)="deletePhone()" class="btn-delete">Delete</button>
+        </div>
+      </div>
+      
+      <div class="phone-info">
+        <div class="info-group">
+          <span class="label">ID:</span>
+          <span>{{ phone.id }}</span>
+        </div>
+        
+        <div class="info-group">
+          <span class="label">Manufacturer:</span>
+          <span>{{ phone.manufacturer }}</span>
+        </div>
+        
+        <div class="info-group">
+          <span class="label">Phone Number:</span>
+          <span>{{ phone.phoneNumber }}</span>
+        </div>
+        
+        <div class="info-group">
+          <span class="label">Price:</span>
+          <span class="price">{{ phone.price | currency }}</span>
+        </div>
+        
+        <div class="info-group">
+          <span class="label">In Stock:</span>
+          <span [ngClass]="phone.inStock ? 'status-in-stock' : 'status-out-of-stock'">
+            {{ phone.inStock ? 'Yes' : 'No' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>

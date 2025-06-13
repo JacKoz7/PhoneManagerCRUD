@@ -1,0 +1,103 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .back-link {
+    margin-bottom: 20px;
+  }
+  
+  .back-link a {
+    color: #2196F3;
+    text-decoration: none;
+  }
+  
+  .loading, .error {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+  }
+  
+  .loading {
+    background-color: #f9f9f9;
+  }
+  
+  .error {
+    background-color: #ffebee;
+    color: #d32f2f;
+  }
+  
+  .phone-detail {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .phone-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .phone-header h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .phone-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn-edit, .btn-delete {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .btn-edit {
+    background-color: #FFC107;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .btn-delete {
+    background-color: #F44336;
+    color: white;
+    border: none;
+  }
+  
+  .phone-info {
+    padding: 20px;
+  }
+  
+  .info-group {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  
+  .label {
+    font-weight: 600;
+    width: 120px;
+  }
+  
+  .price {
+    color: #4CAF50;
+    font-weight: 600;
+  }
+  
+  .status-in-stock {
+    color: #4CAF50;
+    font-weight: 500;
+  }
+  
+  .status-out-of-stock {
+    color: #F44336;
+    font-weight: 500;
+  }

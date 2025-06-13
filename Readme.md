@@ -47,14 +47,15 @@ A simple CRUD application for managing mobile phones, built with ASP.NET Core ba
 
 <table>
   <tr>
-    <td><img width="1470" alt="Zrzut ekranu 2025-06-13 o 10 11 10" src="https://github.com/user-attachments/assets/8c825524-9e05-425a-b1a5-94ed86f1f106" /></td>
-    <td><img width="1470" alt="Zrzut ekranu 2025-06-13 o 10 11 55" src="https://github.com/user-attachments/assets/b9e3a89f-cd95-4f27-8f72-7a05f8e4fd1e" /></td>
+    <td><img width="1469" alt="Zrzut ekranu 2025-06-13 o 10 21 47" src="https://github.com/user-attachments/assets/0ac4dc68-2ff4-41c8-8cee-1d46d95f9ef5" /></td>
+    <td><img width="1470" alt="Zrzut ekranu 2025-06-13 o 10 22 23" src="https://github.com/user-attachments/assets/ffb664d8-91aa-4935-8167-a1f40c0c897b" /></td>
   </tr>
   <tr>
-    <td><img width="1470" alt="Zrzut ekranu 2025-06-13 o 10 12 23" src="https://github.com/user-attachments/assets/c52816da-7ba9-4a4f-8d99-17af1da2f1b3" /></td>
-    <td><img width="1470" alt="Zrzut ekranu 2025-06-13 o 10 13 01" src="https://github.com/user-attachments/assets/295c8feb-0885-44a3-b5a2-ee6044b0c954" /></td>
+    <td><img width="1470" alt="Zrzut ekranu 2025-06-13 o 10 22 54" src="https://github.com/user-attachments/assets/e782bb9e-330a-4012-87fa-e092ec7bd96c" /></td>
+    <td><img width="1470" alt="Zrzut ekranu 2025-06-13 o 10 23 19" src="https://github.com/user-attachments/assets/446e9e85-53d3-4371-b129-cea564db9e21" /></td>
   </tr>
 </table>
+
 
 
 

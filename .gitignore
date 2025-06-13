@@ -1,0 +1,5 @@
+CRUDapp.sln
+bin/
+obj/
+.vs/
+node_modules/

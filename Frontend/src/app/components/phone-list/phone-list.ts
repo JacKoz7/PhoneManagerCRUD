@@ -9,14 +9,14 @@ import { PhoneService } from '../../services/phone.service';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './phone-list.html',
-  styleUrls: ['./phone-list.css'],
+  styleUrls: ['./phone-list.css']
 })
 export class PhoneListComponent implements OnInit {
   phones: Phone[] = [];
   loading: boolean = true;
   error: string | null = null;
 
-  constructor(private phoneService: PhoneService) {}
+  constructor(private phoneService: PhoneService) { }
 
   ngOnInit(): void {
     this.loadPhones();
@@ -24,6 +24,8 @@ export class PhoneListComponent implements OnInit {
 
   loadPhones(): void {
     this.loading = true;
+    this.error = null;
+    
     this.phoneService.getPhones().subscribe({
       next: (phones) => {
         this.phones = phones;
@@ -33,7 +35,7 @@ export class PhoneListComponent implements OnInit {
         this.error = err.message;
         this.loading = false;
         console.error('Error loading phones:', err);
-      },
+      }
     });
   }
 
@@ -41,13 +43,21 @@ export class PhoneListComponent implements OnInit {
     if (confirm('Are you sure you want to delete this phone?')) {
       this.phoneService.deletePhone(id).subscribe({
         next: () => {
-          this.phones = this.phones.filter((phone) => phone.id !== id);
+          this.phones = this.phones.filter(phone => phone.id !== id);
         },
         error: (err) => {
           console.error('Error deleting phone:', err);
           alert('Failed to delete phone: ' + err.message);
-        },
+        }
       });
     }
+  }
+  
+  formatPhoneNumber(phoneNumber: string): string {
+    // Format as XXX-XXX-XXX
+    if (phoneNumber && phoneNumber.length === 9) {
+      return `${phoneNumber.substring(0, 3)}-${phoneNumber.substring(3, 6)}-${phoneNumber.substring(6)}`;
+    }
+    return phoneNumber;
   }
 }

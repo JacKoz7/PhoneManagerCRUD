@@ -1,53 +1,48 @@
 <div class="container">
-    <div class="header">
-      <h2>Mobile Phone Management</h2>
-      <a [routerLink]="['/phones/new']" class="btn-add">Add New Phone</a>
+    <div class="page-header">
+      <div class="header-content">
+        <h2>Phone Inventory</h2>
+        <p>Manage your collection of mobile devices</p>
+      </div>
+      <a [routerLink]="['/phones/new']" class="btn btn-primary">
+        <span class="icon">+</span> Add New Phone
+      </a>
     </div>
     
-    <div *ngIf="loading" class="loading">
-      Loading phones...
+    <div *ngIf="loading" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Loading your inventory...</p>
     </div>
     
-    <div *ngIf="error" class="error">
-      {{ error }}
+    <div *ngIf="error" class="error-container">
+      <div class="error-icon">!</div>
+      <p>{{ error }}</p>
+      <button (click)="loadPhones()" class="btn btn-primary">Try Again</button>
     </div>
     
     <div *ngIf="!loading && !error && phones.length === 0" class="empty-state">
-      No phones found. Add some phones to get started.
+      <div class="empty-icon">📱</div>
+      <h3>No phones in inventory</h3>
+      <p>Add some phones to get started with your inventory management.</p>
+      <a [routerLink]="['/phones/new']" class="btn btn-primary">Add Your First Phone</a>
     </div>
     
     <div *ngIf="!loading && !error && phones.length > 0" class="phone-grid">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Manufacturer</th>
-            <th>Phone Number</th>
-            <th>Price</th>
-            <th>In Stock</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let phone of phones">
-            <td>{{ phone.id }}</td>
-            <td>{{ phone.name }}</td>
-            <td>{{ phone.manufacturer }}</td>
-            <td>{{ phone.phoneNumber }}</td>
-            <td>{{ phone.price | currency }}</td>
-            <td>
-              <span [ngClass]="phone.inStock ? 'status-in-stock' : 'status-out-of-stock'">
-                {{ phone.inStock ? 'Yes' : 'No' }}
-              </span>
-            </td>
-            <td class="actions">
-              <a [routerLink]="['/phones', phone.id]" class="btn-view">View</a>
-              <a [routerLink]="['/phones', phone.id, 'edit']" class="btn-edit">Edit</a>
-              <button (click)="deletePhone(phone.id!)" class="btn-delete">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="card phone-card" *ngFor="let phone of phones">
+        <div class="phone-status" [ngClass]="{'in-stock': phone.inStock, 'out-of-stock': !phone.inStock}">
+          {{ phone.inStock ? 'In Stock' : 'Out of Stock' }}
+        </div>
+        <div class="phone-content">
+          <h3 class="phone-name">{{ phone.name }}</h3>
+          <p class="phone-manufacturer">{{ phone.manufacturer }}</p>
+          <p class="phone-price">{{ phone.price | currency }}</p>
+          <p class="phone-number">{{ formatPhoneNumber(phone.phoneNumber) }}</p>
+        </div>
+        <div class="phone-actions">
+          <a [routerLink]="['/phones', phone.id]" class="btn-view">Details</a>
+          <a [routerLink]="['/phones', phone.id, 'edit']" class="btn-edit">Edit</a>
+          <button (click)="deletePhone(phone.id!)" class="btn-delete">Delete</button>
+        </div>
+      </div>
     </div>
   </div>

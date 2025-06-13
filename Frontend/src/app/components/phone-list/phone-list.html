@@ -1,1 +1,53 @@
-<p>phone-list works!</p>
+<div class="container">
+    <div class="header">
+      <h2>Mobile Phone Management</h2>
+      <a [routerLink]="['/phones/new']" class="btn-add">Add New Phone</a>
+    </div>
+    
+    <div *ngIf="loading" class="loading">
+      Loading phones...
+    </div>
+    
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+    
+    <div *ngIf="!loading && !error && phones.length === 0" class="empty-state">
+      No phones found. Add some phones to get started.
+    </div>
+    
+    <div *ngIf="!loading && !error && phones.length > 0" class="phone-grid">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Phone Number</th>
+            <th>Price</th>
+            <th>In Stock</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let phone of phones">
+            <td>{{ phone.id }}</td>
+            <td>{{ phone.name }}</td>
+            <td>{{ phone.manufacturer }}</td>
+            <td>{{ phone.phoneNumber }}</td>
+            <td>{{ phone.price | currency }}</td>
+            <td>
+              <span [ngClass]="phone.inStock ? 'status-in-stock' : 'status-out-of-stock'">
+                {{ phone.inStock ? 'Yes' : 'No' }}
+              </span>
+            </td>
+            <td class="actions">
+              <a [routerLink]="['/phones', phone.id]" class="btn-view">View</a>
+              <a [routerLink]="['/phones', phone.id, 'edit']" class="btn-edit">Edit</a>
+              <button (click)="deletePhone(phone.id!)" class="btn-delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -43,6 +43,13 @@ A simple CRUD application for managing mobile phones, built with ASP.NET Core ba
 
 4. The application will be available at http://localhost:4200
 
+### Testing
+
+```
+cd Backend.Tests
+dotnet test
+```
+
 ## Screenshots
 
 <table>
